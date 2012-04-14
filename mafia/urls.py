@@ -18,6 +18,6 @@ urlpatterns = patterns('',
        
     # 
 
-    #url(r'^games/', include('mafia.games.urls')),
+    #url(r'^games/', include('games.urls')),
     #url(r'^index/index', 'mafia.index.views.index')
 )
