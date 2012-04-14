@@ -4,7 +4,9 @@ from django.contrib.auth.models import User
 
 
 class Game(models.Model):
-    current_round = models.ForeignKey('games.Round')
+    public = models.BooleanField(default=False)
+    current_round = models.ForeignKey('games.Round',
+            null=True)
     max_participants = models.IntegerField(default=8)
 
 
@@ -37,8 +39,10 @@ class Round(models.Model):
 
 class Vote(models.Model):
     round = models.ForeignKey(Round)
-    voter = models.ForeignKey(User)
-    target = models.ForeignKey(User)
+    voter = models.ForeignKey(User,
+            related_name='vote_voter_set')
+    target = models.ForeignKey(User,
+            related_name='vote_target_set')
 
     class Meta:
         unique_together = (('round', 'voter'))

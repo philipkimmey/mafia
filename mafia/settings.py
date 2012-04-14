@@ -106,7 +106,7 @@ ROOT_URLCONF = 'mafia.urls'
 WSGI_APPLICATION = 'mafia.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_PATH, 'templates'),
+    os.path.join(BASE_PATH, 'mafia', 'templates'),
 )
 
 INSTALLED_APPS = (
