@@ -2,7 +2,7 @@
 import os
 import sys
 
-base = os.path.abspath(__file__)
+base = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(base, 'lib'))
 
 if __name__ == "__main__":
