@@ -5,6 +5,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.shortcuts import render_to_response
 from django.contrib.auth import logout
+from django.contrib.auth import login
+from django.contrib.auth import authenticate
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import logout
 
