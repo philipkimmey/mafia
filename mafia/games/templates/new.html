@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h1 style='text-align:center'>Create a Game</h1>
+<form method="post" action="/games/new/">
+{% csrf_token %}
+
+<div class="row">
+	<div class="span4"># of Participants</div>
+	<div class="span8"><input type="text" name="num_participants" style="width: 300px;" /></div>
+</div>
+<div class="row">
+    <div class="span4">Email Addresses:</div>
+    <div class="span8"><textarea style='width: 300px; height: 150px;' name="emails" placeholder="Comma seperated list of emails"></textarea></div>
+</div>
+<div class="row">
+    <div class="span12" style='text-align: center'>
+    	<input type="submit" />
+    </div>
+</div>
+</form>
+
+{% endblock %}

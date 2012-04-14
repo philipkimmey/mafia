@@ -5,8 +5,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.shortcuts import render_to_response
 from django.contrib.auth import logout
-from django.views.decorators.csrf import csrf_protect
-from django.contrib.auth import logout
+from django.views.decorators.csrf import csrf_exempt
 
 from index.forms import RegistrationForm
 
@@ -14,6 +13,7 @@ def logout_page(request):
     logout(request)
     return HttpResponseRedirect('/')
   
+@csrf_exempt
 def register_page(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
