@@ -9,6 +9,10 @@ class Game(models.Model):
             null=True)
     max_participants = models.IntegerField(default=8)
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('game', [unicode(self.pk)])
+
 
 ROLE_CHOICES = (
         ('villager', 'Villager'),

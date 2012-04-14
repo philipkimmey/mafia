@@ -5,17 +5,18 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.shortcuts import render_to_response
 from django.contrib.auth import logout
-from django.contrib.auth import login
-from django.contrib.auth import authenticate
-from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import logout
 
 from index.forms import RegistrationForm
 
+from games.models import Game
+
+
 def logout_page(request):
     logout(request)
     return HttpResponseRedirect('/')
-  
+
+
 def register_page(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -31,10 +32,11 @@ def register_page(request):
     variables = RequestContext(request, {
         'form': form
     })
-    
     return render_to_response(
         'registration/register.html', variables
     )
-    
+
+
 def index(request):
-    return render(request, 'index.html', {})
+    games = Game.objects.filter(public=True)
+    return render(request, 'index.html', {'games': games})
