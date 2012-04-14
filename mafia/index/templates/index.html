@@ -5,7 +5,7 @@
 		<span class="8"><h1>Welcome to Mafia</h1></span>
 
         {% if user.is_authenticated %}
-            <span id="sign_in" class="span4">Sign Out</span>
+            <a href="/logout/"><span id="sign_in" class="span4">Sign Out</span></a>
         {% else %}
 		    <a href="/login/"><span id="sign_in" class="span4">Sign In</span></a>
 		{% endif %}

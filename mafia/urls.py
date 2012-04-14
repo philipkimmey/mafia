@@ -10,7 +10,7 @@ from index.views import *
 urlpatterns = patterns('',
     # Manage session
     (r'^$', index),
-    (r'^login/$', login_page),
+    (r'^login/$', 'django.contrib.auth.views.login'),
     (r'^logout/$', logout_page),
     (r'^register/$', register_page),
     (r'^register/success/$', direct_to_template,
