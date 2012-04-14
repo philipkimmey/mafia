@@ -7,4 +7,5 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('',
     url(r'^login/$', 'mafia.views.login'),
     url(r'^games/', include('mafia.games.urls')),
+    url(r'^index/index', 'mafia.index.views.index')
 )
