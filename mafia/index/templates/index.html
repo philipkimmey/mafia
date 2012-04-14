@@ -4,7 +4,11 @@
 	<div class="row">
 		<span class="8"><h1>Welcome to Mafia</h1></span>
 
-		<span id="sign_in" class="span4">Sign In</span>
+        {% if user.is_authenticated %}
+            <span id="sign_in" class="span4">Sign Out</span>
+        {% else %}
+		    <a href="/login/"><span id="sign_in" class="span4">Sign In</span></a>
+		{% endif %}
 	</div>
 
 	<div class="row">
