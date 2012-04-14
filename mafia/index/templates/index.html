@@ -5,14 +5,23 @@
 		<span class="span8"><h1>Welcome to Mafia</h1></span>
 
         {% if user.is_authenticated %}
-            Signed in as {{ user.username }}<a id="sign_out" class="span4" href='/logout/'>Sign Out</a>
+            <span class="span4">Signed in as {{ user.username }} | <a id="sign_out" href='/logout/'>Sign Out</a></span>
         {% else %}
-		    <a id="sign_in" class="span4" href='/login/'>Sign In</a>
+		    <span class="span4"><a id="sign_in" href='/login/'>Sign In</a> |  
+		    <a id="register" href='/register/'>Register</a></span>
 		{% endif %}
 	</div>
 
 	<div class="row" style='text-align: center;'>
 		<img src="/static/mafia.jpg">
-	</div>
+    </div>
+
+    <div>
+        {% for game in games %}
+            <a href="{{ game.get_absolute_url }}">
+                {{ game }}
+            </a>
+        {% endfor %}
+    </div>
 	
 {% endblock %}
