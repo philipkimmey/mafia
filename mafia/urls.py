@@ -15,9 +15,7 @@ urlpatterns = patterns('',
     (r'^register/$', register_page),
     (r'^register/success/$', direct_to_template,
        {'template': 'registration/register_success.html'}),
-       
-    # 
 
-    #url(r'^games/', include('games.urls')),
+    url(r'^games/', include('games.urls')),
     #url(r'^index/index', 'mafia.index.views.index')
 )
